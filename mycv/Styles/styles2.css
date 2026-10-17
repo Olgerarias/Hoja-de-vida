@@ -1,0 +1,427 @@
+:root {
+    --color-1: #f8f9fa; 
+    --color-2: #e9ecef; 
+    --color-3: #dee2e6; 
+    --color-4: #ced4da; 
+    --color-5: #adb5bd; 
+    --color-6: #6c757d; 
+    --color-7: #495057; 
+    --color-8: #343a40; 
+    --color-9: #212529; 
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 1.5rem;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--color-9);
+    background: linear-gradient(135deg, var(--color-1), var(--color-2), var(--color-3), var(--color-4), var(--color-5), var(--color-6), var(--color-7), var(--color-8), var(--color-9));
+}
+
+.contenedor{
+    max-width: 50rem;
+    margin: 0 auto;
+}
+
+.menu{
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    position: sticky;
+    top: 0; /* sin esta linea el sticky NO hace nada */
+    z-index: 50; /*lo ponemos para se vea encima de todo en z"*/
+    padding: 0.25rem 0.5rem;
+    background-color: var(--color-4);/*OBLIGATORIO: para que no sea trasparente*/
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--color-5);
+    
+
+}
+
+.menu ul {
+    list-style:none; margin: 0; padding: 0;
+    display: flex;
+}
+
+.menu a{
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--color-9);
+    text-decoration: none;
+    transition: 0.3;
+    border-left: var(--color-5) 1px solid;
+    background-color: var(--color-4);
+}
+
+.menu > a{
+    font-weight: bold;
+    background-color: var(--color-5);
+    border-radius: 8px;
+    display: inline-block;
+    vertical-align: middle;
+    align-self: center;
+    border: 1px solid #fff;
+}
+
+.menu a.activo{
+    color: var(--color-9);
+    background-color: var(--color-5);
+    font-weight: bold;
+    border-radius: 8px;
+    border: 1px solid #fff;
+}
+
+.menu a:hover{
+    color: var(--color-2);
+    background-color: var(--color-5);
+}
+
+.menu a:active{
+    color: var(--color-9);
+    background-color: var(--color-8);
+}
+
+.menu li { border-bottom: 1px solid var(--color-3); }
+
+.menu li:first-child {
+    border-top: none;
+    border-left: 1px solid var(--color-3);
+    border-radius: 8px 0 0 8px;
+}
+
+.menu li:last-child  {
+    border-top: none;
+    border-right: 1px solid var(--color-3);
+    border-radius: 0 8px 8px 0;
+}
+
+.portada{
+    margin-bottom: 2rem;
+    padding: 2rem;                 
+    text-align: center;
+    background-color: var(--color-3);
+    border-radius: 16px;
+    border: 1px solid var(--color-6);
+}
+
+.portada-cabecera{
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--color-9);
+}
+
+.portada-titulo { margin: 0 0 0.5rem; 
+    color: var(--color-7); 
+}
+
+.portada-rol  { 
+    margin: 0; color: var(--color-6); 
+}
+
+.portada-texto{
+    padding: 12px;
+    margin: 0 0 1rem;
+    text-align: center;
+    color: var(--color-9);
+}
+
+.portada-meta{
+    margin: 1.25rem 0 0 ;
+    color: var(--color-6);
+}
+
+.perfil {
+    max-width: 30rem;
+    margin: 0 auto 2rem;             /* centrada (auto a los lados) y aire abajo */
+    padding: 2rem;
+    text-align: center;              /* centra el TEXTO: margin no hace esto     */
+    background-color: var(--color-3);
+    border: 1px solid var(--color-6);
+    border-radius: 12px;
+    position: relative;
+}
+
+.perfil-foto {
+    width: 50%;                     
+    height: 50%;
+    object-fit: cover;               
+    margin-bottom: 1rem;
+    border: 3px solid var(--color-6);
+    border-radius: 50%;
+    margin: 1rem;
+    
+}
+
+.insignia {
+    position: absolute;
+    top: 16rem;
+    right: 8rem;
+    background-color: var(--color-1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.bloque{
+    margin-bottom: 1rem;
+    padding: 1rem;                   /* antes 3rem 2rem: menos aire vertical */
+    text-align: center;
+    background-color: var(--color-3);
+    border-radius: 16px;
+    border: 1px solid var(--color-6);
+}
+
+.titulo-seccion {
+    margin: 0 0 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-7);
+    text-align: left;
+    position: relative;
+}
+
+.titulo-seccion::after {
+    content: "";
+    display: block;
+    width: 3.75rem;
+    height: 0.25rem;
+    margin-top: 0.5rem;
+    background-color: var(--color-8);
+    border-radius: 2px;
+    text-align: left;
+}
+
+.titulo-seccion + p { font-size: 1.1rem; color: var(--color-9); }
+.titulo-seccion ~ p { margin: 0 0 0.5rem; }
+
+#Habilidades ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.2rem;
+}
+
+/* Estilo para cada ítem (tarjeta) */
+#Habilidades li {
+    background-color: var(--color-1);
+    border: 1px solid var(--color-5);
+    border-left: 4px solid var(--color-5);
+    border-radius: 8px;
+    padding: 1.2rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    align-items: center;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* Efecto Hover para interactividad */
+#Habilidades li:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    border-left-color: var(--color-8);
+    background: linear-gradient(180deg, var(--color-1), var(--color-2), var(--color-3), var(--color-4), var(--color-5));
+}
+#Estudios{
+    margin-bottom: 1rem;
+    padding: 1rem;                   /* antes 3rem 2rem: menos aire vertical */
+    text-align: center;
+    background-color: var(--color-3);
+    border-radius: 16px;
+    border: 1px solid var(--color-6);
+}
+.table-education{
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 20px 0;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 0.95rem;
+    color: var(--color-7);
+    background-color: var(--color-3);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+.table-education thead{
+    background-color: var(--color-8);
+    color: var(--color-1);
+}
+
+.table-education th {
+    padding: 14px 18px;
+    text-align: left;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    border-bottom: 2px solid var(--color-9);
+}
+
+.table-education td {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--color-3);
+    vertical-align: middle;
+    transition: background-color 0.2s ease;
+}
+
+/* Filas alternas (Efecto Zebra) */
+.table-education tbody tr:nth-child(even) {
+    background-color: var(--color-1);
+}
+
+
+.table-education tbody tr:hover {
+    background-color: var(--color-2);
+}
+
+
+.table-education tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.table-education td .badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background-color: var(--color-2);
+    color: var(--color-7);
+}
+
+#Experiencia ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.2rem;
+}
+
+
+#Experiencia li {
+    background-color: var(--color-1);
+    border: 1px solid var(--color-5);
+    border-left: 4px solid var(--color-5);
+    border-radius: 8px;
+    padding: 1.2rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    align-items: center;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+
+#Experiencia li:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    border-left-color: var(--color-8);
+    background: linear-gradient(180deg, var(--color-1), var(--color-2), var(--color-3), var(--color-4), var(--color-5));
+}
+
+#Contacto {
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin-bottom: 24px;
+    border: 1px solid var(--color-3);
+    box-shadow: 0 4px 6px -1px rgba(33, 37, 41, 0.05);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+#Contacto p {
+    background-color: var(--color-1);
+    border: 1px solid var(--color-5);
+    border-left: 4px solid var(--color-5);
+    border-radius: 8px;
+    padding: 1.2rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    align-items: center;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+#Contacto p:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    border-left-color: var(--color-8);
+    background: linear-gradient(180deg, var(--color-1), var(--color-2), var(--color-3), var(--color-4), var(--color-5));
+}
+
+#Contacto p:last-child {
+    margin-bottom: 0;
+}
+
+/* Destacado (Ingeniero en Informática...) */
+#Contacto strong {
+    color: var(--color-9);
+    font-weight: 600;
+}
+
+/* Enlaces / Botones de contacto */
+#Contacto a {
+    color: var(--color-8);
+    font-weight: 600;
+    text-decoration: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background-color: var(--color-3);
+    border: 1px solid var(--color-5);
+    transition: all 0.2s ease;
+}
+
+#Contacto a:hover {
+    color: #ffffff;
+    background-color: var(--color-6);
+    border-color: var(--color-9);
+}
+
+.subir {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index:30;
+    width: 3rem;
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    border-radius: 50%;
+    background-color: var(--color-6);
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.subir:hover {
+    background-color: var(--color-4);
+    color: var(--color-9);
+}
+
+footer{
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: var(--color-5);
+}
