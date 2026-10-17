@@ -1,4 +1,5 @@
 :root {
+    /* Paleta de colores */
     --color-1: #f8f9fa; 
     --color-2: #e9ecef; 
     --color-3: #dee2e6; 
@@ -8,185 +9,222 @@
     --color-7: #495057; 
     --color-8: #343a40; 
     --color-9: #212529; 
+    --color-white: #ffffff;
+
+    /* Tipografías */
+    --font-base: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --font-alt: Arial, sans-serif;
+
+    /* Bordes y Radios */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-full: 999px;
+
+    /* Sombras */
+    --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 6px 12px rgba(0, 0, 0, 0.12);
+    --shadow-float: 0 4px 12px rgba(0, 0, 0, 0.25);
+
+    /* Transición general */
+    --transition: all 0.25s ease;
 }
 
 * {
     box-sizing: border-box;
 }
 
-body{
+html {
+    scroll-behavior: smooth;
+}
+
+body {
     margin: 0;
-    padding: 1.5rem;
-    font-family: Arial, sans-serif;
+    padding: 1.5rem 1rem;
+    font-family: var(--font-base);
     line-height: 1.6;
     color: var(--color-9);
     background: linear-gradient(135deg, var(--color-1), var(--color-2), var(--color-3), var(--color-4), var(--color-5), var(--color-6), var(--color-7), var(--color-8), var(--color-9));
+    min-height: 100vh;
 }
 
-.contenedor{
+.contenedor {
     max-width: 50rem;
     margin: 0 auto;
+    width: 100%;
 }
 
-.menu{
+/* ==========================================================================
+   Menú de Navegación
+   ========================================================================== */
+.menu {
     margin-bottom: 1.5rem;
     display: flex;
     justify-content: space-between;
-    gap: 1rem;
+    align-items: center;
+    gap: 0.75rem;
     position: sticky;
-    top: 0; /* sin esta linea el sticky NO hace nada */
-    z-index: 50; /*lo ponemos para se vea encima de todo en z"*/
-    padding: 0.25rem 0.5rem;
-    background-color: var(--color-4);/*OBLIGATORIO: para que no sea trasparente*/
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    top: 0.75rem;
+    z-index: 50;
+    padding: 0.5rem 0.75rem;
+    background-color: var(--color-4);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
     border: 1px solid var(--color-5);
-    
-
+    backdrop-filter: blur(8px);
 }
 
 .menu ul {
-    list-style:none; margin: 0; padding: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
 }
 
-.menu a{
-    display: block;
-    padding: 0.75rem 1rem;
+.menu a {
+    display: inline-block;
+    padding: 0.5rem 0.75rem;
     color: var(--color-9);
     text-decoration: none;
-    transition: 0.3;
-    border-left: var(--color-5) 1px solid;
+    font-size: 0.9rem;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
     background-color: var(--color-4);
 }
 
-.menu > a{
+.menu > a.marca {
     font-weight: bold;
     background-color: var(--color-5);
-    border-radius: 8px;
-    display: inline-block;
-    vertical-align: middle;
-    align-self: center;
-    border: 1px solid #fff;
+    border-radius: var(--radius-md);
+    padding: 0.5rem 0.85rem;
+    border: 1px solid var(--color-white);
 }
 
-.menu a.activo{
-    color: var(--color-9);
-    background-color: var(--color-5);
-    font-weight: bold;
-    border-radius: 8px;
-    border: 1px solid #fff;
-}
-
-.menu a:hover{
+.menu a.activo,
+.menu a:hover {
     color: var(--color-2);
     background-color: var(--color-5);
 }
 
-.menu a:active{
+.menu a.activo {
     color: var(--color-9);
+    font-weight: bold;
+    border: 1px solid var(--color-white);
+}
+
+.menu a:active {
+    color: var(--color-1);
     background-color: var(--color-8);
 }
 
-.menu li { border-bottom: 1px solid var(--color-3); }
-
-.menu li:first-child {
-    border-top: none;
-    border-left: 1px solid var(--color-3);
-    border-radius: 8px 0 0 8px;
-}
-
-.menu li:last-child  {
-    border-top: none;
-    border-right: 1px solid var(--color-3);
-    border-radius: 0 8px 8px 0;
-}
-
-.portada{
-    margin-bottom: 2rem;
-    padding: 2rem;                 
+/* ==========================================================================
+   Secciones y Bloques Comunes
+   ========================================================================== */
+.portada,
+.bloque,
+.perfil {
+    margin-bottom: 1.5rem;
+    padding: 2rem;
     text-align: center;
     background-color: var(--color-3);
-    border-radius: 16px;
+    border-radius: var(--radius-xl);
     border: 1px solid var(--color-6);
+    box-shadow: var(--shadow-sm);
 }
 
-.portada-cabecera{
-    padding-bottom: 2rem;
-    margin-bottom: 2rem;
+.portada-cabecera {
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
     border-bottom: 2px solid var(--color-9);
 }
 
-.portada-titulo { margin: 0 0 0.5rem; 
-    color: var(--color-7); 
+.portada-titulo {
+    margin: 0 0 0.5rem;
+    font-size: 2.2rem;
+    color: var(--color-7);
 }
 
-.portada-rol  { 
-    margin: 0; color: var(--color-6); 
-}
-
-.portada-texto{
-    padding: 12px;
-    margin: 0 0 1rem;
-    text-align: center;
-    color: var(--color-9);
-}
-
-.portada-meta{
-    margin: 1.25rem 0 0 ;
+.portada-rol {
+    margin: 0;
+    font-size: 1.1rem;
     color: var(--color-6);
 }
 
+.portada-texto {
+    padding: 0.5rem 0;
+    margin: 0 0 1rem;
+    text-align: center;
+    color: var(--color-9);
+    font-size: 1rem;
+}
+
+.portada-meta {
+    margin: 1.25rem 0 0;
+    color: var(--color-6);
+}
+
+/* ==========================================================================
+   Perfil
+   ========================================================================== */
 .perfil {
     max-width: 30rem;
-    margin: 0 auto 2rem;             /* centrada (auto a los lados) y aire abajo */
-    padding: 2rem;
-    text-align: center;              /* centra el TEXTO: margin no hace esto     */
-    background-color: var(--color-3);
-    border: 1px solid var(--color-6);
-    border-radius: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: relative;
 }
 
 .perfil-foto {
-    width: 50%;                     
-    height: 50%;
-    object-fit: cover;               
-    margin-bottom: 1rem;
+    width: 150px;
+    height: 180px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
     border: 3px solid var(--color-6);
     border-radius: 50%;
-    margin: 1rem;
-    
+    margin-bottom: 0.75rem;
+    box-shadow: var(--shadow-md);
 }
 
 .insignia {
-    position: absolute;
-    top: 16rem;
-    right: 8rem;
     background-color: var(--color-1);
-    padding: 0.25rem 0.75rem;
-    border-radius: 999px;
-    font-size: 0.7rem;
+    color: var(--color-8);
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
     font-weight: bold;
     letter-spacing: 0.5px;
+    border: 1px solid var(--color-5);
+    margin-bottom: 0.75rem;
+    display: inline-block;
 }
 
-.bloque{
-    margin-bottom: 1rem;
-    padding: 1rem;                   /* antes 3rem 2rem: menos aire vertical */
-    text-align: center;
-    background-color: var(--color-3);
-    border-radius: 16px;
-    border: 1px solid var(--color-6);
+.perfil-nombre {
+    margin: 0.5rem 0 0.25rem;
+    color: var(--color-8);
+    font-size: 1.5rem;
 }
 
+.perfil-rol {
+    margin: 0;
+    color: var(--color-7);
+    font-size: 1rem;
+}
+
+/* ==========================================================================
+   Títulos de Sección
+   ========================================================================== */
 .titulo-seccion {
     margin: 0 0 1rem;
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--color-7);
     text-align: left;
-    position: relative;
 }
 
 .titulo-seccion::after {
@@ -196,74 +234,88 @@ body{
     height: 0.25rem;
     margin-top: 0.5rem;
     background-color: var(--color-8);
-    border-radius: 2px;
-    text-align: left;
+    border-radius: var(--radius-sm);
 }
 
-.titulo-seccion + p { font-size: 1.1rem; color: var(--color-9); }
-.titulo-seccion ~ p { margin: 0 0 0.5rem; }
+.titulo-seccion + p {
+    font-size: 1.05rem;
+    color: var(--color-9);
+    text-align: left;
+    margin-bottom: 1.25rem;
+}
 
-#Habilidades ul {
+/* ==========================================================================
+   Tarjetas Unificadas (Habilidades, Experiencia, Párrafos de Contacto)
+   ========================================================================== */
+#Habilidades ul,
+#Experiencia ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.2rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+    gap: 1rem;
 }
 
-/* Estilo para cada ítem (tarjeta) */
-#Habilidades li {
+#Habilidades li,
+#Experiencia li,
+#Contacto p {
     background-color: var(--color-1);
     border: 1px solid var(--color-5);
-    border-left: 4px solid var(--color-5);
-    border-radius: 8px;
-    padding: 1.2rem;
+    border-left: 5px solid var(--color-5);
+    border-radius: var(--radius-md);
+    padding: 1.1rem;
     font-size: 0.95rem;
     line-height: 1.5;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
     display: flex;
     align-items: center;
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    text-align: left;
+    margin: 0;
 }
 
-/* Efecto Hover para interactividad */
-#Habilidades li:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    border-left-color: var(--color-8);
-    background: linear-gradient(180deg, var(--color-1), var(--color-2), var(--color-3), var(--color-4), var(--color-5));
-}
-#Estudios{
+#Contacto p {
     margin-bottom: 1rem;
-    padding: 1rem;                   /* antes 3rem 2rem: menos aire vertical */
-    text-align: center;
-    background-color: var(--color-3);
-    border-radius: 16px;
-    border: 1px solid var(--color-6);
+    display: block;
 }
-.table-education{
+
+#Contacto p:last-child {
+    margin-bottom: 0;
+}
+
+#Habilidades li:hover,
+#Experiencia li:hover,
+#Contacto p:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+    border-left-color: var(--color-8);
+    background: linear-gradient(180deg, var(--color-1), var(--color-2), var(--color-3));
+}
+
+/* ==========================================================================
+   Tabla de Estudios
+   ========================================================================== */
+.table-education {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
-    margin: 20px 0;
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    margin: 1.25rem 0;
     font-size: 0.95rem;
     color: var(--color-7);
     background-color: var(--color-3);
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     overflow: hidden;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    box-shadow: var(--shadow-md);
 }
 
-.table-education thead{
+.table-education thead {
     background-color: var(--color-8);
     color: var(--color-1);
 }
 
 .table-education th {
-    padding: 14px 18px;
+    padding: 12px 16px;
     text-align: left;
     font-weight: 600;
     letter-spacing: 0.05em;
@@ -273,22 +325,20 @@ body{
 }
 
 .table-education td {
-    padding: 14px 18px;
+    padding: 12px 16px;
     border-bottom: 1px solid var(--color-3);
     vertical-align: middle;
     transition: background-color 0.2s ease;
+    text-align: left;
 }
 
-/* Filas alternas (Efecto Zebra) */
 .table-education tbody tr:nth-child(even) {
     background-color: var(--color-1);
 }
 
-
 .table-education tbody tr:hover {
     background-color: var(--color-2);
 }
-
 
 .table-education tbody tr:last-child td {
     border-bottom: none;
@@ -296,132 +346,322 @@ body{
 
 .table-education td .badge {
     display: inline-block;
-    padding: 4px 8px;
-    border-radius: 4px;
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
     font-size: 0.75rem;
     font-weight: 600;
     background-color: var(--color-2);
     color: var(--color-7);
+    border: 1px solid var(--color-4);
 }
 
-#Experiencia ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.2rem;
-}
-
-
-#Experiencia li {
-    background-color: var(--color-1);
-    border: 1px solid var(--color-5);
-    border-left: 4px solid var(--color-5);
-    border-radius: 8px;
-    padding: 1.2rem;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    display: flex;
-    align-items: center;
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-}
-
-
-#Experiencia li:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    border-left-color: var(--color-8);
-    background: linear-gradient(180deg, var(--color-1), var(--color-2), var(--color-3), var(--color-4), var(--color-5));
-}
-
-#Contacto {
-    border-radius: 8px;
-    padding: 24px 28px;
-    margin-bottom: 24px;
-    border: 1px solid var(--color-3);
-    box-shadow: 0 4px 6px -1px rgba(33, 37, 41, 0.05);
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-}
-
-#Contacto p {
-    background-color: var(--color-1);
-    border: 1px solid var(--color-5);
-    border-left: 4px solid var(--color-5);
-    border-radius: 8px;
-    padding: 1.2rem;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    display: flex;
-    align-items: center;
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-}
-
-#Contacto p:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    border-left-color: var(--color-8);
-    background: linear-gradient(180deg, var(--color-1), var(--color-2), var(--color-3), var(--color-4), var(--color-5));
-}
-
-#Contacto p:last-child {
-    margin-bottom: 0;
-}
-
-/* Destacado (Ingeniero en Informática...) */
+/* ==========================================================================
+   Contacto Específico
+   ========================================================================== */
 #Contacto strong {
     color: var(--color-9);
     font-weight: 600;
 }
 
-/* Enlaces / Botones de contacto */
 #Contacto a {
     color: var(--color-8);
     font-weight: 600;
     text-decoration: none;
-    padding: 4px 8px;
-    border-radius: 4px;
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
     background-color: var(--color-3);
     border: 1px solid var(--color-5);
-    transition: all 0.2s ease;
+    transition: var(--transition);
+    display: inline-block;
+    margin: 0.25rem 0.25rem 0.25rem 0;
 }
 
 #Contacto a:hover {
-    color: #ffffff;
+    color: var(--color-white);
     background-color: var(--color-6);
     border-color: var(--color-9);
 }
 
+/* ==========================================================================
+   Botón Subir y Footer
+   ========================================================================== */
 .subir {
     position: fixed;
     bottom: 1.5rem;
     right: 1.5rem;
-    z-index:30;
-    width: 3rem;
-    height: 3rem;
-    line-height: 3rem;
+    z-index: 40;
+    width: 2.75rem;
+    height: 2.75rem;
+    line-height: 2.75rem;
     text-align: center;
     border-radius: 50%;
     background-color: var(--color-6);
-    color: #fff;
+    color: var(--color-white);
     text-decoration: none;
     font-size: 1.25rem;
     font-weight: bold;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    box-shadow: var(--shadow-float);
+    transition: var(--transition);
 }
 
 .subir:hover {
     background-color: var(--color-4);
     color: var(--color-9);
+    transform: translateY(-2px);
 }
 
-footer{
+footer {
     text-align: center;
     padding: 1rem;
     font-size: 0.9rem;
     color: var(--color-5);
 }
+
+/* ==========================================================================
+   Media Queries (Responsive para Móviles y Tablets)
+   ========================================================================== */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem 0.75rem;
+    }
+
+    .portada,
+    .bloque,
+    .perfil {
+        padding: 1.5rem 1rem;
+        border-radius: var(--radius-lg);
+    }
+
+    .portada-titulo {
+        font-size: 1.8rem;
+    }
+
+    .menu {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+
+    .menu > a.marca {
+        text-align: center;
+    }
+
+    .menu ul {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .menu a {
+        text-align: center;
+    }
+}
+
+@media (max-width: 580px) {
+    .menu ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.35rem;
+    }
+
+    .menu a {
+        padding: 0.6rem 0.5rem;
+        font-size: 0.85rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Tabla de educación adaptada a tarjetas verticales */
+    .table-education,
+    .table-education tbody,
+    .table-education tr,
+    .table-education td {
+        display: block;
+        width: 100%;
+    }
+
+    .table-education thead {
+        display: none;
+    }
+
+    .table-education tr {
+        margin-bottom: 1rem;
+        border: 1px solid var(--color-4);
+        border-radius: var(--radius-md);
+        background-color: var(--color-1);
+        padding: 0.75rem;
+        box-shadow: var(--shadow-sm);
+    }
+
+    .table-education td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid var(--color-3);
+        font-size: 0.88rem;
+        text-align: right;
+        gap: 0.75rem;
+    }
+
+    .table-education td:last-child {
+        border-bottom: none;
+    }
+
+    .table-education td:nth-child(1)::before {
+        content: "Grado";
+        font-weight: 600;
+        text-align: left;
+        color: var(--color-8);
+        min-width: 80px;
+    }
+
+    .table-education td:nth-child(2)::before {
+        content: "Institución";
+        font-weight: 600;
+        text-align: left;
+        color: var(--color-8);
+        min-width: 80px;
+    }
+
+    .table-education td:nth-child(3)::before {
+        content: "Estado";
+        font-weight: 600;
+        text-align: left;
+        color: var(--color-8);
+        min-width: 80px;
+    }
+
+    .subir {
+        bottom: 1rem;
+        right: 1rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        line-height: 2.5rem;
+        font-size: 1.1rem;
+    }
+}
+
+/* ==========================================================================
+   Media Queries (Responsive para Móviles y Tablets)
+   ========================================================================== */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem 0.75rem;
+    }
+
+    .portada,
+    .bloque,
+    .perfil {
+        padding: 1.5rem 1rem;
+        border-radius: var(--radius-lg);
+    }
+
+    .portada-titulo {
+        font-size: 1.8rem;
+    }
+
+    .menu {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+
+    .menu > a.marca {
+        text-align: center;
+    }
+
+    .menu ul {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .menu a {
+        text-align: center;
+    }
+}
+
+@media (max-width: 580px) {
+    .menu ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.35rem;
+    }
+
+    .menu a {
+        padding: 0.6rem 0.5rem;
+        font-size: 0.85rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Tabla de educación adaptada a tarjetas verticales */
+    .table-education,
+    .table-education tbody,
+    .table-education tr,
+    .table-education td {
+        display: block;
+        width: 100%;
+    }
+
+    .table-education thead {
+        display: none;
+    }
+
+    .table-education tr {
+        margin-bottom: 1rem;
+        border: 1px solid var(--color-4);
+        border-radius: var(--radius-md);
+        background-color: var(--color-1);
+        padding: 0.75rem;
+        box-shadow: var(--shadow-sm);
+    }
+
+    .table-education td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid var(--color-3);
+        font-size: 0.88rem;
+        text-align: right;
+        gap: 0.75rem;
+    }
+
+    .table-education td:last-child {
+        border-bottom: none;
+    }
+
+    .table-education td:nth-child(1)::before {
+        content: "Grado";
+        font-weight: 600;
+        text-align: left;
+        color: var(--color-8);
+        min-width: 80px;
+    }
+
+    .table-education td:nth-child(2)::before {
+        content: "Institución";
+        font-weight: 600;
+        text-align: left;
+        color: var(--color-8);
+        min-width: 80px;
+    }
+
+    .table-education td:nth-child(3)::before {
+        content: "Estado";
+        font-weight: 600;
+        text-align: left;
+        color: var(--color-8);
+        min-width: 80px;
+    }
+
+    .subir {
+        bottom: 1rem;
+        right: 1rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        line-height: 2.5rem;
+        font-size: 1.1rem;
+    }
+}
+
